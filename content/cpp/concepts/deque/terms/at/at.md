@@ -49,12 +49,10 @@ It also shows how the method raises an exception when accessing an out-of-range 
 ```cpp
 #include <iostream>
 #include <deque>
-#include <stdexcept> // Required for std::out_of_range
-
+#include <stdexcept> 
 int main() {
   std::deque<int> d = {10, 20, 30, 40, 50};
 
-  // Access a valid element (index 2)
   try {
     int value = d.at(2);
     std::cout << "Element at index 2: " << value << "\n";
@@ -62,7 +60,6 @@ int main() {
     std::cout << "Error: " << e.what() << "\n";
   }
 
-  // Attempt to access an invalid index
   try {
     d.at(10) = 999; // Index 10 does not exist (size is 5)
   } catch (const std::out_of_range& e) {
@@ -77,7 +74,8 @@ int main() {
 
 ## Codebyte Example
 
-```codebyte/cpp
+```cpp
+
 #include <iostream>
 #include <deque>
 #include <stdexcept>
@@ -85,11 +83,9 @@ int main() {
 int main() {
   std::deque<char> letters = {'A', 'B', 'C', 'D'};
 
-  // Access element at index 1 ('B')
   char element = letters.at(1);
   std::cout << "Element at index 1: " << element << "\n";
 
-  // Attempt to access an index out of range
   try {
     letters.at(5);
   } catch (const std::out_of_range& e) {
